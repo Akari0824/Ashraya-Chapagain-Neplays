@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0b0f1a;
+  color: #ffffff;
+}
+
+/* NAVBAR */
+header {
+  width: 100%;
+  padding: 18px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  /* Gradient: white (left) to blue (right) */
+  background: linear-gradient(to right, #ffffff 40%, #0b3a6f 100%);
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 42px; /* decrease logo size */
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff7a18;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-login {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ff7a18;
+}
+
+.btn-signup {
+  background: #ff7a18;
+  color: #ffffff;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  background: linear-gradient(
+      to right,
+      rgba(10, 15, 30, 0.95),
+      rgba(10, 15, 30, 0.6)
+    ),
+    url('hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-content h1 span {
+  color: #ff7a18;
+}
+
+.hero-content p {
+  margin: 20px 0 30px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #d0d0d0;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #ff7a18;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 13px;
+  border: 1px solid #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  header {
+    padding: 20px 40px;
+  }
+
+  .hero {
+    padding: 0 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+}
+#typing-text::after {
+  content: "|";
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+.btn-primary {
+  background: #ff7a18;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #e5670f;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 122, 24, 0.4);
+}
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 13px;
+  border: 1px solid #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+/* Background slide effect */
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-secondary:hover::before {
+  left: 0;
+}
+
+.btn-secondary:hover {
+  color: #f5800b;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left text */
+.hero-content {
+  max-width: 600px;
+  z-index: 2;
+}
+
+/* Right image container */
+.hero-image {
+  width: 45%;          /* DOES NOT take full right side */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Image styling */
+.hero-image img {
+  max-width: 85%;
+  height: auto;
+  opacity: 0.95;
+}
+.hero-image img {
+  mask-image: linear-gradient(to left, black 70%, transparent);
+}
