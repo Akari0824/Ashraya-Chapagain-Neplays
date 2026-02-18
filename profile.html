@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEPLAYS - Player Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-500">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="fa-solid fa-basketball text-orange-500 text-3xl"></i>
+                <span class="text-3xl font-bold tracking-wide brand-font">NEPLAYS</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+                <a href="index.html" class="nav-link hover:text-orange-500 transition">Home</a>
+                <a href="tournaments.html" class="nav-link hover:text-orange-500 transition">Tournaments</a>
+                <a href="news.html" class="nav-link hover:text-orange-500 transition">News</a>
+            </div>
+            <div id="auth-links" class="flex items-center gap-4 font-medium"></div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        
+        <!-- Profile Card -->
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+            <!-- Cover Banner -->
+            <div class="h-48 bg-gradient-to-r from-slate-900 to-slate-800 relative">
+                <div class="absolute bottom-4 right-4 text-white/20 text-6xl">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
+            </div>
+
+            <div class="px-8 pb-8">
+                <div class="relative flex flex-col md:flex-row items-start md:items-end -mt-16 mb-8 gap-6">
+                    <!-- Avatar -->
+                    <div class="relative">
+                        <img id="profile-image" src="https://ui-avatars.com/api/?name=User&background=f97316&color=fff" class="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover bg-white">
+                        <div class="absolute bottom-2 right-2 bg-green-500 w-5 h-5 rounded-full border-2 border-white" title="Online"></div>
+                    </div>
+                    
+                    <!-- Basic Info (View Mode) -->
+                    <div class="flex-1 pt-2 md:pt-0">
+                        <h1 id="profile-name" class="text-4xl font-bold text-slate-900">Loading...</h1>
+                        <div class="flex items-center gap-4 text-slate-500 mt-1">
+                            <span id="profile-role" class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded-full uppercase">PLAYER</span>
+                            <span id="profile-location-display"><i class="fa-solid fa-location-dot mr-1"></i> <span class="text">Kathmandu, Nepal</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div>
+                        <button onclick="app.profile.toggleEdit()" class="bg-slate-900 text-white px-6 py-2 rounded-full font-bold hover:bg-orange-500 transition shadow-lg">
+                            <i class="fa-solid fa-pen-to-square mr-2"></i> Edit Profile
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Left Column: About -->
+                    <div class="md:col-span-2 space-y-8">
+                        <!-- Bio Section -->
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 border-l-4 border-orange-500 pl-3">About Me</h3>
+                            <p id="profile-bio" class="text-slate-600 leading-relaxed bg-slate-50 p-6 rounded-xl border border-slate-100">
+                                No bio added yet.
+                            </p>
+                        </div>
+
+                        <!-- Stats (Mock) -->
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 border-l-4 border-orange-500 pl-3">Career Stats</h3>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="bg-white border border-slate-200 p-4 rounded-xl text-center">
+                                    <div class="text-3xl font-bold text-slate-900">12</div>
+                                    <div class="text-xs text-slate-500 uppercase tracking-wider font-bold">Matches</div>
+                                </div>
+                                <div class="bg-white border border-slate-200 p-4 rounded-xl text-center">
+                                    <div class="text-3xl font-bold text-orange-500">5</div>
+                                    <div class="text-xs text-slate-500 uppercase tracking-wider font-bold">Wins</div>
+                                </div>
+                                <div class="bg-white border border-slate-200 p-4 rounded-xl text-center">
+                                    <div class="text-3xl font-bold text-slate-900">14.2</div>
+                                    <div class="text-xs text-slate-500 uppercase tracking-wider font-bold">PPG</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Teams -->
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3 border-l-4 border-orange-500 pl-3">My Teams</h3>
+                        <div id="my-teams-list" class="space-y-3">
+                            <!-- Injected via JS -->
+                            <div class="p-4 bg-slate-50 rounded-xl text-center text-slate-500 text-sm">No teams registered.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-modal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-300">
+            <div class="bg-slate-900 p-6 flex justify-between items-center text-white">
+                <h3 class="text-xl font-bold">Edit Profile</h3>
+                <button onclick="app.profile.toggleEdit()" class="hover:text-orange-500"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            
+            <form onsubmit="event.preventDefault(); app.profile.save(this)" class="p-6 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                        <input type="text" name="name" id="edit-name" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Location</label>
+                        <input type="text" name="location" id="edit-location" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none" placeholder="City, Country">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Bio</label>
+                    <textarea name="bio" id="edit-bio" rows="4" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none" placeholder="Tell us about your basketball journey..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Profile Image URL</label>
+                    <div class="flex gap-2">
+                        <input type="url" name="image" id="edit-image" class="flex-1 px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none" placeholder="https://...">
+                        <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center border border-slate-300 overflow-hidden">
+                            <img id="edit-image-preview" src="" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">Use a direct image link.</p>
+                </div>
+
+                <div class="pt-4 flex gap-3">
+                    <button type="button" onclick="app.profile.toggleEdit()" class="flex-1 py-3 rounded-lg border border-slate-300 text-slate-600 font-bold hover:bg-slate-50">Cancel</button>
+                    <button type="submit" class="flex-1 bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 shadow-lg">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-auto border-t-4 border-orange-500 text-center">
+        <p class="brand-font text-xl text-white mb-2">NEPLAYS</p>
+        <p class="text-sm">Digitalizing Basketball in Nepal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
