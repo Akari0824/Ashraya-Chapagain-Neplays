@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News - NEPLAYS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-500">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2"><i class="fa-solid fa-basketball text-orange-500 text-3xl"></i><span class="text-3xl font-bold brand-font">NEPLAYS</span></a>
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+                <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+                <a href="tournaments.html" class="hover:text-orange-500 transition">Tournaments</a>
+                <a href="news.html" class="text-orange-500 transition">News</a>
+            </div>
+            <div id="auth-links" class="flex items-center gap-4"></div>
+        </div>
+    </nav>
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-4xl">
+        <h1 class="text-4xl font-bold text-slate-800 mb-2 brand-font">LATEST UPDATES</h1>
+        <div class="w-24 h-1 bg-orange-500 mb-8 rounded-full"></div>
+        <div id="news-container" class="space-y-6"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

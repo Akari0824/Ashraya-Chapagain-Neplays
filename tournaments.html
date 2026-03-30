@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tournaments - NEPLAYS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-500">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2"><i class="fa-solid fa-basketball text-orange-500 text-3xl"></i><span class="text-3xl font-bold brand-font">NEPLAYS</span></a>
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+                <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+                <a href="tournaments.html" class="text-orange-500 transition">Tournaments</a>
+                <a href="news.html" class="hover:text-orange-500 transition">News</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div id="logged-out-menu" class="hidden flex items-center gap-4">
+                    <a href="login.html" class="hover:text-orange-500 transition font-bold text-slate-300">Login</a>
+                    <a href="register.html" class="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-full font-bold text-sm transition">Register</a>
+                </div>
+
+                <div id="logged-in-menu" class="hidden flex items-center gap-4">
+                    <div class="relative flex items-center z-50">
+                        <button onclick="app.messages.toggleDropdown()" class="text-slate-300 hover:text-orange-500 transition text-xl relative">
+                            <i class="fa-solid fa-bell"></i>
+                            <span id="unread-badge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-slate-900">0</span>
+                        </button>
+                        
+                        <div id="messages-dropdown" class="hidden absolute top-10 right-0 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden message-dropdown-anim">
+                            <div class="bg-slate-900 text-white px-4 py-3 font-bold flex justify-between items-center brand-font text-lg">
+                                <span>Notifications</span>
+                                <i class="fa-solid fa-inbox text-orange-500"></i>
+                            </div>
+                            <div id="messages-list" class="max-h-80 overflow-y-auto custom-scrollbar">
+                                <div class="p-4 text-center text-sm text-slate-500">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="profile.html" id="nav-user-name" class="text-sm text-slate-300 hover:text-orange-500 transition flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i> User
+                    </a>
+                    <button onclick="app.logout()" class="text-red-400 hover:text-red-500 font-bold transition">Logout</button>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-slate-800 mb-2 brand-font">ALL TOURNAMENTS</h1>
+        <div class="w-24 h-1 bg-orange-500 mb-8 rounded-full"></div>
+        <div id="tournament-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

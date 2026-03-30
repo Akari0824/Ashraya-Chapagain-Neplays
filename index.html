@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEPLAYS - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-500">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="fa-solid fa-basketball text-orange-500 text-3xl"></i>
+                <span class="text-3xl font-bold tracking-wide brand-font">NEPLAYS</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+                <a href="index.html" class="nav-link text-orange-500 transition">Home</a>
+                <a href="tournaments.html" class="nav-link hover:text-orange-500 transition">Tournaments</a>
+                <a href="news.html" class="nav-link hover:text-orange-500 transition">News</a>
+            </div>
+            <div id="auth-links" class="flex items-center gap-4"></div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <div class="relative bg-slate-900 h-[500px] flex items-center justify-center border-b-8 border-orange-500">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ee2?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-20">
+            <div class="relative z-10 text-center px-4">
+                <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">NEPAL'S PREMIER BASKETBALL PLATFORM</span>
+                <h1 class="text-6xl md:text-8xl text-white font-bold mb-6 drop-shadow-lg brand-font">ELEVATE YOUR GAME</h1>
+                <p class="text-slate-300 text-xl mb-8 max-w-2xl mx-auto">Register your team, view fixtures, and compete.</p>
+                <a href="tournaments.html" class="bg-white text-slate-900 hover:bg-orange-500 hover:text-white transition px-8 py-4 rounded-full font-bold text-lg inline-block shadow-lg">View Live Tournaments</a>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-slate-800 brand-font">LIVE TOURNAMENTS</h2>
+            <div class="w-24 h-1 bg-orange-500 mt-2 mb-8 rounded-full"></div>
+            <div id="featured-tournaments" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-auto border-t-4 border-orange-500 text-center">
+        <p class="brand-font text-2xl text-white mb-2">NEPLAYS</p>
+        <p class="text-sm">Digitalizing Basketball in Nepal.</p>
+    </footer>
+
+    <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h2 class="text-4xl font-bold brand-font mb-6 text-slate-900">WHY CHOOSE NEPLAYS?</h2>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+                NEPLAYS is Nepal's first dedicated digital basketball ecosystem. We bridge the gap between local talent and professional opportunities by providing a seamless registration experience, real-time updates, and professional match tracking.
+            </p>
+            <ul class="space-y-3 text-slate-700 font-medium">
+                <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Instant Khalti Payment Integration</li>
+                <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Transparent 48-Hour Refund Policy</li>
+                <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Professional Tournament Brackets</li>
+            </ul>
+        </div>
+        <div class="bg-slate-100 rounded-2xl p-8 border-l-8 border-orange-500 shadow-inner">
+            <h3 class="text-2xl font-bold mb-4 brand-font">PLATFORM STATS</h3>
+            <div class="grid grid-cols-2 gap-6">
+                <div><p class="text-3xl font-bold text-orange-500">50+</p><p class="text-sm text-slate-500 uppercase">Tournaments</p></div>
+                <div><p class="text-3xl font-bold text-orange-500">2000+</p><p class="text-sm text-slate-500 uppercase">Players</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-slate-50 overflow-hidden">
+    <div class="container mx-auto px-4 relative">
+        <h2 class="text-4xl font-bold text-center brand-font mb-2">RECENT HIGHLIGHTS</h2>
+        <p class="text-center text-slate-500 mb-10">Capturing the best moments on the court</p>
+        
+        <div class="relative group">
+            <button onclick="document.getElementById('highlights-gallery').scrollBy({left: -350, behavior: 'smooth'})" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:ml-0 z-10 bg-white hover:bg-orange-500 text-slate-800 hover:text-white w-12 h-12 rounded-full shadow-xl transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 hidden md:flex">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            
+            <div id="highlights-gallery" class="flex gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory py-4 px-2">
+                </div>
+
+            <button onclick="document.getElementById('highlights-gallery').scrollBy({left: 350, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:mr-0 z-10 bg-white hover:bg-orange-500 text-slate-800 hover:text-white w-12 h-12 rounded-full shadow-xl transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 hidden md:flex">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<div id="highlight-modal" class="fixed inset-0 bg-slate-950/90 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+    <div id="highlight-modal-content" class="relative max-w-5xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row transform scale-95 transition-transform duration-300 border border-slate-700">
+        
+        <button onclick="app.closeHighlightModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white z-10 bg-black/50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur transition">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        
+        <div class="md:w-3/5 h-[40vh] md:h-[70vh] bg-black flex items-center justify-center">
+            <img id="modal-image" src="" class="max-w-full max-h-full object-contain">
+        </div>
+
+        <div class="md:w-2/5 p-8 bg-slate-800 text-white flex flex-col justify-center">
+            <span class="text-orange-500 text-sm font-bold tracking-widest uppercase mb-2"><i class="fa-solid fa-camera mr-2"></i>Event Highlight</span>
+            <h3 id="modal-title" class="text-3xl font-bold brand-font mb-4 text-white">Title</h3>
+            <div class="w-12 h-1 bg-orange-500 mb-6 rounded-full"></div>
+            
+            <p id="modal-desc" class="text-slate-300 leading-relaxed text-sm mb-8">
+                </p>
+
+            <div class="mt-auto border-t border-slate-700 pt-4 flex items-center gap-3 text-sm text-slate-400">
+                <i class="fa-solid fa-circle-check text-green-500"></i> NEPLAYS Official Media
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
